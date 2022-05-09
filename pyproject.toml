@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "websocketclient"
+version = "0.1.0"
+description = "A persistent websocket client for Django"
+authors = ["Kiran Kumbhar <kiranpk189@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+websockets = "^10.3"
+Django = "^4.0.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.3.0"
+flake8-bugbear = "^22.4.25"
+flake8-import-order = "^0.18.1"
+zimports = "^0.5.0"
+pytest-django = "^4.5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
