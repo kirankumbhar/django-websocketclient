@@ -1,10 +1,9 @@
-from cgitb import handler
 import importlib
 
 from django.conf import settings
 
 
-async def default_message_handler(message):
+async def default_message_handler(message, websocket):
     pass
 
 

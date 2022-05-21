@@ -47,6 +47,14 @@ class WebSocketClient:
         self.__host = value
 
     @property
+    def path(self) -> str:
+        return self.__path
+
+    @path.setter
+    def path(self, value):
+        self.__path = value
+
+    @property
     def headers(self) -> List[Tuple]:
         return [(k, v) for k, v in self.__headers.items()]
 
@@ -67,7 +75,7 @@ class WebSocketClient:
             self.stdout.write("Successfully connected to Websocket Server")
             try:
                 async for message in websocket:
-                    await self.process_message(message)
+                    await self.process_message(message, websocket)
             except websockets.ConnectionClosed:
                 logger.error(f"Websocket connection to {self.url} lost! Retrying...")
                 continue
@@ -76,5 +84,5 @@ class WebSocketClient:
                 logger.error(f"{msg} Error: {str(e)}")
                 raise Exception(msg)
 
-    async def process_message(self, message):
-        message_handler_func()
+    async def process_message(self, message, websocket):
+        await message_handler_func(message, websocket)
