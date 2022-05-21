@@ -8,7 +8,7 @@ async def default_message_handler(message, websocket):
 
 
 def get_handler_from_settings():
-    _handler = getattr(settings, "WEBSOCKETCLIENT_MESSAGE_HANDLER")
+    _handler = getattr(settings, "WEBSOCKETCLIENT_MESSAGE_HANDLER", None)
     if _handler is None:
         return
     if not isinstance(_handler, str):
