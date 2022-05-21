@@ -1,8 +1,11 @@
 [tool.poetry]
-name = "websocketclient"
+name = "django-websocketclient"
 version = "0.1.0"
 description = "A persistent websocket client for Django"
 authors = ["Kiran Kumbhar <kiranpk189@gmail.com>"]
+packages = [
+    { include = "websocketclient"}
+]
 exclude = ["websocketclient/tests/**/*"]
 
 [tool.poetry.dependencies]
