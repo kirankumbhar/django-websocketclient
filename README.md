@@ -65,11 +65,30 @@ async def message_handler(message, websocket):
 
 
 ## Usage
-Run manage.py command to conenct to websocket server.
+Run manage.py command to connect to websocket server.
 
 ```bash
 python manage.py runwebsocketclient
 ```
+Optional CLI Arguments
+
+```
+usage: manage.py runwebsocketclient [--host HOST] [--path PATH]
+  --host HOST   Websocket Server host
+  --path PATH   Websocket Server path
+```
+
+## Available Settings
+
+| Variable | Type | Description |
+| ---------|------|-------------|
+| WEBSOCKETCLIENT_HOST | String| Websocket server host to conenct to. Required |
+| WEBSOCKETCLIENT_PATH | String | Path part of websocket url. For e.g. `events/` |
+| WEBSOCKETCLIENT_AUTH_HEADER | String| Authentication header key. Defaults to "Authorization" |
+| WEBSOCKETCLIENT_TOKEN | String | Token for authenticated connection. |
+| WEBSOCKETCLIENT_TOKEN_SCHEME | String | Token scheme to be used as a part of token. For e.g. 'bearer' |
+| WEBSOCKETCLIENT_CONNECT_SECURE | Boolean | Set True to use `wss://` protocol. Defaults to False |
+| WEBSOCKETCLIENT_DISABLE_SSL_VERIFY | Boolean | Set True to disable SSL verification. Defaults to False |
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
