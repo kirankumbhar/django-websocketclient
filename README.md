@@ -2,14 +2,16 @@
 
 django-websocketclient is a WebSocket client for Django to connect to the WebSocket server and listen to incoming messages in persistent mode
 
+> This library uses async interator for websocket connection provided by [websockets](https://github.com/aaugustin/websockets) library and wrap it under django's manage.py command. The idea is taken from the [discussion thread](https://forum.djangoproject.com/t/add-a-websocket-client-to-django-not-a-server/2916/2) on the django's forum.
+
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/).
 
 ```bash
 pip install django-websocketclient
 ```
-Or using poetry
+Or using [poetry](https://python-poetry.org/).
 
 ```bash
 poerty add django-websocketclient
@@ -77,6 +79,9 @@ usage: manage.py runwebsocketclient [--host HOST] [--path PATH]
   --host HOST   Websocket Server host
   --path PATH   Websocket Server path
 ```
+
+## Database operation inside message handler
+DB operations like ORM query should be done using sync function wrap with `sync_to_async`
 
 ## Available Settings
 
